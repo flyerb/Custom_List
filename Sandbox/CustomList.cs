@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 namespace Sandbox
 {
     public class CustomList<T>
-    { 
+    {
         //As a developer, I want a read-only Count property implemented on the custom-built list class, so that I can get a count of the number of elements in my custom list class instance.
 
         // member variables (HAS A)
         private T[] items;
+        private int count;
+        private int capacity;
 
-        private int count
+        public int Count
         {
             get
             {
@@ -21,20 +23,50 @@ namespace Sandbox
             }
         }
 
-        public int capacity;
-
-        // constructor (SPAWNER)
-        public CustomList()
+        public int Capacity
         {
-            items = new T[4];
+            get
+            {
+                return capacity;
+            }
         }
 
+
+        private T this[int i]
+        {
+            get
+            {
+                return items[i];
+            }
+            set
+            {
+                items[i] = value;
+            }
+        }
+
+
+    // constructor (SPAWNER)
+ 
+    public CustomList()
+        {
+            capacity = 4;
+            count = 0;
+            items = new T[capacity];
+
+        }
+
+        
         // member methods (CAN DO)
         public void Add(T item)
         {
+
+            items[count] = item;
+            count++;
+
+
             if(items.Length == 1)
             {
-                items[0] = item;   //add to array "list
+                items[0] = item;  
             }
             else if(items.Length == 2)
             {
@@ -50,8 +82,7 @@ namespace Sandbox
             }
             if (items.Length == 4)
             {
-                int i = 
-                    = Math.Pow(i, 2);
+                value = Math.Pow(i, 2); //the value in the indexer
                 items = new T[i];
             }
 

@@ -96,19 +96,62 @@ namespace CustomListTests
 
             //act
             testList.Add(itemToAdd);
-            actual = testList.Count;
+            actual = testList.count;
             //assert
 
             Assert.AreEqual(expected, actual);
 
 
             //Write a test that checks an increased Capacity. What if we add 5 or more things to our list. What do we expect the Capacity to be then?
+        }
+        public void Add_ItemsAdded_ChecksIncreasedCapacity()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int expected = 8;
+            int actual;
 
-            public void Add_ItemsAdded_ChecksIncreasedCapacity()
+            //act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+            testList.Add(6);
+            actual = testList.capacity;
+            //assert
+
+            Assert.AreEqual(expected, actual);
+
+            //Write a test that adds 5 or more things to your list then check an index at 4 or above for the correct value based on things that you added.
+        }
+        public void Add_ItemsAdded_ChecksValue()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int expected = 6;
+            int actual;
+
+            //act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+            testList.Add(6);
+            actual = testList[5];
+            //assert
+
+            Assert.AreEqual(expected, actual);
+
+            //Write a test that adds 5 or more things and check the count to make sure the count is working correctly.
+        }
+
+            public void Add_ItemsAdded_ChecksCount()
             {
                 // arrange
                 CustomList<int> testList = new CustomList<int>();
-                int expected = 8;
+                int expected = 6;
                 int actual;
 
                 //act
@@ -118,61 +161,19 @@ namespace CustomListTests
                 testList.Add(4);
                 testList.Add(5);
                 testList.Add(6);
-                actual = testList.capacity;
+                actual = testList.count;
                 //assert
 
                 Assert.AreEqual(expected, actual);
-
-                //Write a test that adds 5 or more things to your list then check an index at 4 or above for the correct value based on things that you added.
-
-                public void Add_ItemsAdded_ChecksValue()
-                {
-                    // arrange
-                    CustomList<int> testList = new CustomList<int>();
-                    int expected = 6;
-                    int actual;
-
-                    //act
-                    testList.Add(1);
-                    testList.Add(2);
-                    testList.Add(3);
-                    testList.Add(4);
-                    testList.Add(5);
-                    testList.Add(6);
-                    actual = testList[5];
-                    //assert
-
-                    Assert.AreEqual(expected, actual);
-
-                    //Write a test that adds 5 or more things and check the count to make sure the count is working correctly.
-
-
-                    public void Add_ItemsAdded_ChecksCount()
-                    {
-                        // arrange
-                        CustomList<int> testList = new CustomList<int>();
-                        int expected = 6;
-                        int actual;
-
-                        //act
-                        testList.Add(1);
-                        testList.Add(2);
-                        testList.Add(3);
-                        testList.Add(4);
-                        testList.Add(5);
-                        testList.Add(6);
-                        actual = testList.Count;
-                        //assert
-
-                        Assert.AreEqual(expected, actual);
-
-                    }
-
-                }
-
-
-                //      THE SUBTRACT TEST METHOD
             }
+
+
+
+
+
+            //      THE SUBTRACT TEST METHOD
+
+
         }
     }
 }
