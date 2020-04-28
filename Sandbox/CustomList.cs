@@ -63,33 +63,20 @@ namespace Sandbox
             items[count] = item;
             count++;
 
+            if (capacity == count)
+            {
+                capacity = capacity * 2;
 
-            if(items.Length == 1)
-            {
-                items[0] = item;  
-            }
-            else if(items.Length == 2)
-            {
-                items[1] = item;
-            }
-            else if(items.Length == 3)
-            {
-                items[2] = item;
-            }
-            else if(items.Length == 4)
-            {
-                items[3] = item;
-            }
-            if (items.Length == 4)
-            {
-                value = Math.Pow(i, 2); //the value in the indexer
-                items = new T[i];
+                for(int i = 0; count > i; count++)
+                {
+                    item = 
+                }
             }
 
             // if max capacity is met then do this...
             //create a methods that doubles the array size and also copies values over from the first array. 
             //int[] items = new int[4];
-            //items = new int [8];
+            //items = new int [8]; //items = new T[capacity];
 
         }
 

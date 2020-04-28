@@ -7,6 +7,8 @@ namespace CustomListTests
     [TestClass]
     public class UnitTest1
     {
+
+
         [TestMethod]
         public void Add_AddingOneValueToEmptyCustomList_AddedValueGoesToIndexZero()
         {
@@ -48,16 +50,21 @@ namespace CustomListTests
         {
             //arrange
             CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 20;
+            int testNum2 = 30;
+            int testNum3 = 4;
+            int testNum4 = 5;
+            int testNum5 = 12;
             int expected = 5;
             int actual;
 
             //act
 
-            testList.Add(1);
-            testList.Add(2);
-            testList.Add(3);
-            testList.Add(4);
-            testList.Add(5);
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            testList.Add(testNum4);
+            testList.Add(testNum5);
             actual = testList[4];
             //assert
 
@@ -77,7 +84,7 @@ namespace CustomListTests
 
             //act
             testList.Add(itemToAdd);
-            actual = testList.capacity;
+            actual = testList.Capacity;
             //assert
 
             Assert.AreEqual(expected, actual);
@@ -96,7 +103,7 @@ namespace CustomListTests
 
             //act
             testList.Add(itemToAdd);
-            actual = testList.count;
+            actual = testList.Count;
             //assert
 
             Assert.AreEqual(expected, actual);
@@ -108,17 +115,21 @@ namespace CustomListTests
         {
             // arrange
             CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 20;
+            int testNum2 = 30;
+            int testNum3 = 4;
+            int testNum4 = 5;
+            int testNum5 = 12;
             int expected = 8;
             int actual;
 
             //act
-            testList.Add(1);
-            testList.Add(2);
-            testList.Add(3);
-            testList.Add(4);
-            testList.Add(5);
-            testList.Add(6);
-            actual = testList.capacity;
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            testList.Add(testNum4);
+            testList.Add(testNum5);
+            actual = testList.Capacity;
             //assert
 
             Assert.AreEqual(expected, actual);
@@ -126,6 +137,34 @@ namespace CustomListTests
             //Write a test that adds 5 or more things to your list then check an index at 4 or above for the correct value based on things that you added.
         }
         public void Add_ItemsAdded_ChecksValue()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 20;
+            int testNum2 = 30;
+            int testNum3 = 4;
+            int testNum4 = 5;
+            int testNum5 = 12;
+            int testNum6 = 3;
+            int expected = 3;
+            int actual;
+
+            //act
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            testList.Add(testNum4);
+            testList.Add(testNum5);
+            testList.Add(testNum6);
+            actual = testList[5];
+            //assert
+
+            Assert.AreEqual(expected, actual);
+
+            //Write a test that adds 5 or more things and check the count to make sure the count is working correctly.
+        }
+
+        public void Add_ItemsAdded_ChecksCount()
         {
             // arrange
             CustomList<int> testList = new CustomList<int>();
@@ -139,41 +178,126 @@ namespace CustomListTests
             testList.Add(4);
             testList.Add(5);
             testList.Add(6);
-            actual = testList[5];
+            actual = testList.Count;
             //assert
 
             Assert.AreEqual(expected, actual);
-
-            //Write a test that adds 5 or more things and check the count to make sure the count is working correctly.
         }
 
-            public void Add_ItemsAdded_ChecksCount()
-            {
-                // arrange
-                CustomList<int> testList = new CustomList<int>();
-                int expected = 6;
-                int actual;
-
-                //act
-                testList.Add(1);
-                testList.Add(2);
-                testList.Add(3);
-                testList.Add(4);
-                testList.Add(5);
-                testList.Add(6);
-                actual = testList.count;
-                //assert
-
-                Assert.AreEqual(expected, actual);
-            }
 
 
+        //      THE SUBTRACT TEST METHOD
 
+        //test to remove something that doesnt exist 
 
+        public void Subtract_OneItemFromList_ChecksCount()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 20;
+            int testNum2 = 30;
+            int testNum3 = 4;
+            int testNum4 = 5;
+            int testNum5 = 12;
+            int testNum6 = 3;
+            int expected = 5;
+            int actual;
 
-            //      THE SUBTRACT TEST METHOD
+            //act
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            testList.Add(testNum4);
+            testList.Add(testNum5);
+            testList.Add(testNum6);
+            testList.Remove(testNum6);
+            actual = testList.Count;
+            //assert
 
+            Assert.AreEqual(expected, actual);
+        }
 
+        public void Subtract_FirstItemFromList_ChecksFirstIndex()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 20;
+            int testNum2 = 30;
+            int testNum3 = 4;
+            int testNum4 = 5;
+            int testNum5 = 12;
+            int testNum6 = 3;
+            int expected = 30;
+            int actual;
+
+            //act 
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            testList.Add(testNum4);
+            testList.Add(testNum5);
+            testList.Add(testNum6);
+            testList.Remove(testNum1);
+            actual = testList[0];
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        public void Subtract_LastItemFromList_ChecksLastIndexValue()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 20;
+            int testNum2 = 30;
+            int testNum3 = 4;
+            int testNum4 = 5;
+            int testNum5 = 12;
+            int testNum6 = 3;
+            int expected = 12;
+            int actual;
+
+            //act 
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            testList.Add(testNum4);
+            testList.Add(testNum5);
+            testList.Add(testNum6);
+            testList.Remove(testNum6);
+            actual = testList[4];
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        public void Subtract_LastItemFromList_ChecksCapacity()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 20;
+            int testNum2 = 30;
+            int testNum3 = 4;
+            int testNum4 = 5;
+            int testNum5 = 12;
+            int testNum6 = 3;
+            int expected = 8;
+            int actual;
+
+            //act 
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            testList.Add(testNum4);
+            testList.Add(testNum5);
+            testList.Add(testNum6);
+            testList.Remove(testNum6);
+            actual = testList.Capacity;
+            //assert
+
+            Assert.AreEqual(expected, actual);
         }
     }
 }
+
+
