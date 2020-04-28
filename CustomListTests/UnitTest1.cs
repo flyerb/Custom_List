@@ -40,12 +40,139 @@ namespace CustomListTests
             // assert
             Assert.AreEqual(expected, actual);
         }
-        
+
+        [TestMethod]
+
         // what happens if you add multiple things (or add to a CustomList that already has some values)?
-            // what happens to the last-added item?
-            // what happens to the Count?
+        public void Add_AddingOneValueToFullCustomList_CountOfCustomListIncrements()
+        {
+            //arrange
+            CustomList<int> testList = new CustomList<int>();
+            int expected = 5;
+            int actual;
 
-        // what happens if you add more items than the initial Capacity of the CustomList?
+            //act
 
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+            actual = testList[4];
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        // what happens to the last-added item?
+
+        [TestMethod]
+        public void Add_LastAddedItem_AddedToLastIndex()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = 10;
+            int expected = 4;
+            int actual;
+
+            //act
+            testList.Add(itemToAdd);
+            actual = testList.capacity;
+            //assert
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        // what happens to the Count?
+        [TestMethod]
+        public void Add_ItemsAdded_AddedToTheCount()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = 10;
+            int expected = 1;
+            int actual;
+
+            //act
+            testList.Add(itemToAdd);
+            actual = testList.Count;
+            //assert
+
+            Assert.AreEqual(expected, actual);
+
+
+            //Write a test that checks an increased Capacity. What if we add 5 or more things to our list. What do we expect the Capacity to be then?
+
+            public void Add_ItemsAdded_ChecksIncreasedCapacity()
+            {
+                // arrange
+                CustomList<int> testList = new CustomList<int>();
+                int expected = 8;
+                int actual;
+
+                //act
+                testList.Add(1);
+                testList.Add(2);
+                testList.Add(3);
+                testList.Add(4);
+                testList.Add(5);
+                testList.Add(6);
+                actual = testList.capacity;
+                //assert
+
+                Assert.AreEqual(expected, actual);
+
+                //Write a test that adds 5 or more things to your list then check an index at 4 or above for the correct value based on things that you added.
+
+                public void Add_ItemsAdded_ChecksValue()
+                {
+                    // arrange
+                    CustomList<int> testList = new CustomList<int>();
+                    int expected = 6;
+                    int actual;
+
+                    //act
+                    testList.Add(1);
+                    testList.Add(2);
+                    testList.Add(3);
+                    testList.Add(4);
+                    testList.Add(5);
+                    testList.Add(6);
+                    actual = testList[5];
+                    //assert
+
+                    Assert.AreEqual(expected, actual);
+
+                    //Write a test that adds 5 or more things and check the count to make sure the count is working correctly.
+
+
+                    public void Add_ItemsAdded_ChecksCount()
+                    {
+                        // arrange
+                        CustomList<int> testList = new CustomList<int>();
+                        int expected = 6;
+                        int actual;
+
+                        //act
+                        testList.Add(1);
+                        testList.Add(2);
+                        testList.Add(3);
+                        testList.Add(4);
+                        testList.Add(5);
+                        testList.Add(6);
+                        actual = testList.Count;
+                        //assert
+
+                        Assert.AreEqual(expected, actual);
+
+                    }
+
+                }
+
+
+                //      THE SUBTRACT TEST METHOD
+            }
+        }
     }
 }

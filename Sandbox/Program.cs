@@ -12,7 +12,8 @@ namespace Sandbox
         static void Main(string[] args)
         {
 
-
+            CustomList<int> myNumbers = new CustomList<int>();
+            myNumbers.Add(5);
         }
     }
 }
