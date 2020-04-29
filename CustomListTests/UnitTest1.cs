@@ -65,7 +65,7 @@ namespace CustomListTests
             testList.Add(testNum3);
             testList.Add(testNum4);
             testList.Add(testNum5);
-            actual = testList[4];
+            actual = testList[3];
             //assert
 
             Assert.AreEqual(expected, actual);
@@ -187,9 +187,7 @@ namespace CustomListTests
 
 
         //      THE SUBTRACT TEST METHOD
-
-        //test to remove something that doesnt exist 
-
+        [TestMethod]
         public void Subtract_OneItemFromList_ChecksCount()
         {
             // arrange
@@ -217,6 +215,7 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
         public void Subtract_FirstItemFromList_ChecksFirstIndex()
         {
             // arrange
@@ -244,6 +243,7 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
         public void Subtract_LastItemFromList_ChecksLastIndexValue()
         {
             // arrange
@@ -271,6 +271,7 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
         public void Subtract_LastItemFromList_ChecksCapacity()
         {
             // arrange
@@ -293,6 +294,34 @@ namespace CustomListTests
             testList.Add(testNum6);
             testList.Remove(testNum6);
             actual = testList.Capacity;
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Subtract_DuplicateItemFromList_ChecksThatFirstItemWasRemoved()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 20;
+            int testNum2 = 30;
+            int testNum3 = 20;
+            int testNum4 = 5;
+            int testNum5 = 12;
+            int testNum6 = 3;
+            int expected = 20;
+            int actual;
+
+            //act 
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            testList.Add(testNum4);
+            testList.Add(testNum5);
+            testList.Add(testNum6);
+            testList.Remove(20);
+            actual = testList[2];
             //assert
 
             Assert.AreEqual(expected, actual);

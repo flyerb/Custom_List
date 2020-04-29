@@ -32,7 +32,7 @@ namespace Sandbox
         }
 
 
-        private T this[int i]
+        public T this[int i]
         {
             get
             {
@@ -66,23 +66,40 @@ namespace Sandbox
             if (capacity == count)
             {
                 capacity = capacity * 2;
+                T[] tempArrary = new T[capacity];
 
-                for(int i = 0; count > i; count++)
+                for(int i = 0; count > i; i++)
                 {
-                    item = 
+                    tempArrary[i] = items[i];
                 }
+
+                items = tempArrary;
             }
 
-            // if max capacity is met then do this...
-            //create a methods that doubles the array size and also copies values over from the first array. 
-            //int[] items = new int[4];
-            //items = new int [8]; //items = new T[capacity];
-
         }
-
+         
         public bool Remove(T item)
         {
+            for (int i = 0; count > i; i++)
+            {
+                if (items[i].Equals(item))
+                    for (int a = 0; count > a; a++)
+                    {
+                        items[a] = items[a++];
+                        count--;
+                        return true;
+                    }
+                
+            }
             return false;
         }
+
+
+        //for loop to look for the value and once it finds the value shift the other values over and decrement the count. 
+
+        // 45 30 20 30 & & & &
+        // r/30
+        // 45 20 30 & & & & &
+        // count 
     }
 }
