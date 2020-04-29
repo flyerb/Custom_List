@@ -80,26 +80,33 @@ namespace Sandbox
          
         public bool Remove(T item)
         {
+            bool hasFound = false;
             for (int i = 0; count > i; i++)
             {
                 if (items[i].Equals(item))
+                {
+                    items[i] = items[i + 1];
+
+                }
+
+                if (hasFound == true)
+                {
                     for (int a = 0; count > a; a++)
                     {
-                        items[a] = items[a++];
+                        items[a] = items[a + 1];
                         count--;
                         return true;
                     }
-                
+                    //start shifting!
+                }
+
             }
             return false;
         }
 
+        public void AString(T item)
+        {
 
-        //for loop to look for the value and once it finds the value shift the other values over and decrement the count. 
-
-        // 45 30 20 30 & & & &
-        // r/30
-        // 45 20 30 & & & & &
-        // count 
+        }
     }
 }

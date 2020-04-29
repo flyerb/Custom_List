@@ -214,9 +214,8 @@ namespace CustomListTests
 
             Assert.AreEqual(expected, actual);
         }
-
         [TestMethod]
-        public void Subtract_FirstItemFromList_ChecksFirstIndex()
+        public void Subtract_OneItemFromList_ChecksIndexOfOldValue()
         {
             // arrange
             CustomList<int> testList = new CustomList<int>();
@@ -226,22 +225,103 @@ namespace CustomListTests
             int testNum4 = 5;
             int testNum5 = 12;
             int testNum6 = 3;
-            int expected = 30;
+            int expected = 5;
             int actual;
 
-            //act 
+            //act
             testList.Add(testNum1);
             testList.Add(testNum2);
             testList.Add(testNum3);
             testList.Add(testNum4);
             testList.Add(testNum5);
             testList.Add(testNum6);
-            testList.Remove(testNum1);
+            testList.Remove(testNum3);
+            actual = testList[2];
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Subtract_OneItemFromList_ChecksCount_AfterRemovingMiddleValue()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 20;
+            int testNum2 = 30;
+            int testNum3 = 4;
+            int testNum4 = 5;
+            int testNum5 = 12;
+            int testNum6 = 3;
+            int expected = 5;
+            int actual;
+
+            //act
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            testList.Add(testNum4);
+            testList.Add(testNum5);
+            testList.Add(testNum6);
+            testList.Remove(testNum3);
+            actual = testList.Count;
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Subtract_OneItemFromList_CheckIndex0()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 20;
+            int testNum2 = 30;
+            int testNum3 = 4;
+            int testNum4 = 5;
+            int testNum5 = 12;
+            int testNum6 = 3;
+            int expected = 20;
+            int actual;
+
+            //act
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            testList.Add(testNum4);
+            testList.Add(testNum5);
+            testList.Add(testNum6);
+            testList.Remove(testNum3);
             actual = testList[0];
             //assert
 
             Assert.AreEqual(expected, actual);
         }
+        //[TestMethod]
+        //public void Subtract_FirstItemFromList_ChecksFirstIndex()
+        //{
+        //    // arrange
+        //    CustomList<int> testList = new CustomList<int>();
+        //    int testNum1 = 20;
+        //    int testNum2 = 30;
+        //    int testNum3 = 4;
+        //    int testNum4 = 5;
+        //    int testNum5 = 12;
+        //    int testNum6 = 3;
+        //    int expected = 30;
+        //    int actual;
+
+        //    //act 
+        //    testList.Add(testNum1);
+        //    testList.Add(testNum2);
+        //    testList.Add(testNum3);
+        //    testList.Add(testNum4);
+        //    testList.Add(testNum5);
+        //    testList.Add(testNum6);
+        //    testList.Remove(testNum1);
+        //    actual = testList[0];
+        //    //assert
+
+        //    Assert.AreEqual(expected, actual);
+        //}
 
         [TestMethod]
         public void Subtract_LastItemFromList_ChecksLastIndexValue()
