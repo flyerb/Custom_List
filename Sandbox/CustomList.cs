@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sandbox
 {
-    public class CustomList<T>
+    public class CustomList<T> /*: IEnumerable*/
     {
         //As a developer, I want a read-only Count property implemented on the custom-built list class, so that I can get a count of the number of elements in my custom list class instance.
 
@@ -41,13 +41,22 @@ namespace Sandbox
             set
             {
                 items[i] = value;
-            }
+            } 
         }
 
+        //public IEnumerable GetEnumerator()
+        //{
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        yield return items[i];
 
-    // constructor (SPAWNER)
- 
-    public CustomList()
+        //    }
+        //}
+
+
+        // constructor (SPAWNER)
+
+        public CustomList()
         {
             capacity = 4;
             count = 0;
@@ -55,8 +64,11 @@ namespace Sandbox
 
         }
 
-        
+
         // member methods (CAN DO)
+
+       
+
         public void Add(T item)
         {
 
@@ -68,7 +80,7 @@ namespace Sandbox
                 capacity = capacity * 2;
                 T[] tempArrary = new T[capacity];
 
-                for(int i = 0; count > i; i++)
+                for (int i = 0; count > i; i++)
                 {
                     tempArrary[i] = items[i];
                 }
@@ -77,7 +89,7 @@ namespace Sandbox
             }
 
         }
-         
+
         public bool Remove(T item)
         {
             bool hasFound = false;
@@ -86,7 +98,6 @@ namespace Sandbox
                 if (items[i].Equals(item))
                 {
                     items[i] = items[i + 1];
-
                 }
 
                 if (hasFound == true)
@@ -97,16 +108,33 @@ namespace Sandbox
                         count--;
                         return true;
                     }
-                    //start shifting!
+
                 }
 
             }
             return false;
         }
 
-        public void AString(T item)
+        public void ToString(T item)
         {
+        //    foreach (T letter in items)
+        //    {
+               
 
+        //    }
+            for (int i = 0; i < count; i++)
+            {
+                items[i] = items[i++];
+            }
         }
     }
 }
+  
+
+//customer iterator
+
+//class inherits the IEnumerable interface --- this will allow you to use a foreach loop on the custom lists class
+//using systems:collections at top  of page  if IEnumberable is white and not light green
+//implement the interface by right clicking and finding it 
+//put a for loop with count inside GetEnumerator()
+//yield return daysArray[index] /// items[count]

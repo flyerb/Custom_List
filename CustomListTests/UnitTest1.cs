@@ -406,7 +406,73 @@ namespace CustomListTests
 
             Assert.AreEqual(expected, actual);
         }
+
+        //Unit Tests for ToString
+
+        [TestMethod]
+        public void AString_TakesIntsReturnsString_ChecksForString()
+        {
+            //arrange
+            CustomList<int> testList = new CustomList<int>();
+            int testNum1 = 1;
+            int testNum2 = 2;
+            int testNum3 = 3;
+            string expected = "123";
+            string actual;
+
+            //act
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            actual = testList.ToString();
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        public void AString_TakesInCharsReturnsString_ChecksForString()
+        {
+            //arrange
+            CustomList<char> testList = new CustomList<char>();
+            char testNum1 = 'a';
+            char testNum2 = 'b';
+            char testNum3 = 'c';
+            string expected = "abc";
+            string actual;
+
+            //act
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            actual = testList.ToString();
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        public void AString_TakesInDoubleReturnsString_ChecksForString()
+        {
+            //arrange
+            CustomList<double> testList = new CustomList<double>();
+            double testNum1 = 1.5;
+            double testNum2 = 2.5;
+            double testNum3 = 3.5;
+            string expected = "1.52.53.5";
+            string actual;
+
+            //act
+            testList.Add(testNum1);
+            testList.Add(testNum2);
+            testList.Add(testNum3);
+            actual = testList.ToString();
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
 
 
+
+ 
