@@ -115,17 +115,16 @@ namespace Sandbox
             return false;
         }
 
-        public void ToString(T item)
+        public override string ToString()
         {
-        //    foreach (T letter in items)
-        //    {
-               
-
-        //    }
+            string newString = "";
+     
             for (int i = 0; i < count; i++)
             {
-                items[i] = items[i++];
+                newString += items[i].ToString();
+
             }
+            return newString;
         }
     }
 }

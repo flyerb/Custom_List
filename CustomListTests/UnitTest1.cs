@@ -410,7 +410,7 @@ namespace CustomListTests
         //Unit Tests for ToString
 
         [TestMethod]
-        public void AString_TakesIntsReturnsString_ChecksForString()
+        public void ToString_TakesIntsReturnsString_ChecksForString()
         {
             //arrange
             CustomList<int> testList = new CustomList<int>();
@@ -430,7 +430,8 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
 
-        public void AString_TakesInCharsReturnsString_ChecksForString()
+        [TestMethod]
+        public void ToString_TakesInCharsReturnsString_ChecksForString()
         {
             //arrange
             CustomList<char> testList = new CustomList<char>();
@@ -450,8 +451,8 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
 
-
-        public void AString_TakesInDoubleReturnsString_ChecksForString()
+        [TestMethod]
+        public void ToString_TakesInDoubleReturnsString_ChecksForString()
         {
             //arrange
             CustomList<double> testList = new CustomList<double>();
