@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sandbox
 {
-    public class CustomList<T> /*: IEnumerable*/
+    public class CustomList<T>: IEnumerable
     {
         //As a developer, I want a read-only Count property implemented on the custom-built list class, so that I can get a count of the number of elements in my custom list class instance.
 
@@ -44,16 +45,6 @@ namespace Sandbox
             } 
         }
 
-        //public IEnumerable GetEnumerator()
-        //{
-        //    for (int i = 0; i < count; i++)
-        //    {
-        //        yield return items[i];
-
-        //    }
-        //}
-
-
         // constructor (SPAWNER)
 
         public CustomList()
@@ -64,10 +55,18 @@ namespace Sandbox
 
         }
 
+        //IEnumerator 
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return items[i];
+
+            }
+        }
 
         // member methods (CAN DO)
-
-       
 
         public void Add(T item)
         {
@@ -90,29 +89,26 @@ namespace Sandbox
 
         }
 
+
+
         public bool Remove(T item)
         {
             bool hasFound = false;
             for (int i = 0; count > i; i++)
             {
+                
                 if (items[i].Equals(item))
                 {
-                    items[i] = items[i + 1];
+                    hasFound = true;
+                    count--;
                 }
 
                 if (hasFound == true)
                 {
-                    for (int a = 0; count > a; a++)
-                    {
-                        items[a] = items[a + 1];
-                        count--;
-                        return true;
-                    }
-
+                    items[i] = items[i + 1];
                 }
-
             }
-            return false;
+            return hasFound;
         }
 
         public override string ToString()
@@ -126,6 +122,49 @@ namespace Sandbox
             }
             return newString;
         }
+
+        public static CustomList<T>  operator+ (CustomList<T> listOne, CustomList<T> listTwo)
+        {
+    
+            CustomList<T> finalList = new CustomList<T>();
+          
+
+            for (int i = 0; i < listOne.count; i++)
+            {
+                finalList.Add(listOne[i]);
+
+            }
+
+            for (int i = 0; i < listTwo.count; i++)
+            {
+                finalList.Add(listTwo[i]);
+
+            }
+
+            return finalList;
+        }
+
+
+        public static CustomList<T> operator- (CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> finalList = new CustomList<T>();
+
+            for (int i = 0; i < listOne.count; i++)
+            {
+                finalList.Remove(listOne[0]);
+
+            }
+
+            for (int i = 0; i < listTwo.count; i++)
+            {
+                finalList.Remove(listTwo[0]);
+
+            }
+
+            return finalList;
+
+        }
+
     }
 }
   

@@ -401,7 +401,7 @@ namespace CustomListTests
             testList.Add(testNum5);
             testList.Add(testNum6);
             testList.Remove(20);
-            actual = testList[2];
+            actual = testList[1];
             //assert
 
             Assert.AreEqual(expected, actual);
@@ -470,6 +470,126 @@ namespace CustomListTests
             //assert
 
             Assert.AreEqual(expected, actual);
+        }
+
+
+        //Unit Tests for Combine Lists
+
+        [TestMethod]
+        public void CombineList_TakesSeperateIntLists_ReturnsString()
+        {
+            //arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            int testNum1 = 1;
+            int testNum2 = 2;
+            int testNum3 = 3;
+            int testNum4 = 4;
+            string expected = "1234";
+            CustomList<int> actual;
+
+
+            //act
+
+            testList1.Add(testNum1);
+            testList1.Add(testNum2);
+            testList2.Add(testNum3);
+            testList2.Add(testNum4);
+            actual = testList1 + testList2;
+
+            //assert
+            Assert.AreEqual(expected, actual.ToString());
+
+        }
+
+        //Overload + tests
+        [TestMethod]
+        public void ToString_ReturnsString()
+        {
+            //arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<char> testList2 = new CustomList<char>();
+            int testNum1 = 1;
+            int testNum2 = 2;
+            char testNum3 = 'a';
+            char testNum4 = 'b';
+            string expected = "12ab";
+            string actual;
+
+
+            //act
+
+            testList1.Add(testNum1);
+            testList1.Add(testNum2);
+            testList2.Add(testNum3);
+            testList2.Add(testNum4);
+            actual = testList1.ToString() + testList2.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void CombineList_TakesIntAndCharLists_ReturnsString()
+        {
+            //arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> expected = new CustomList<int>() { 1, 2, 3, 4 };
+            CustomList<int> actual;
+
+            //act
+            testList1.Add(1);
+            testList1.Add(2);
+            testList2.Add(3);
+            testList2.Add(4);
+            actual = testList1 + testList2;
+
+            //assert
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+
+        }
+
+        // Overload - Tests
+
+        [TestMethod]
+        public void OverloadMinus_TakesTwoLists_ReturnsOneListWithoutIndex0()
+        {
+            //arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> expected = new CustomList<int>() {2, 4};
+            CustomList<int> actual;
+
+            //act
+            testList1.Add(1);
+            testList1.Add(2);
+            testList2.Add(3);
+            testList2.Add(4);
+            actual = testList1 - testList2;
+
+            //assert
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+        }
+
+        [TestMethod]
+        public void OverloadMinus_TakesOneList_ReturnsOneListWithoutIndex0()
+        {
+            //arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> expected = new CustomList<int>() {234};
+            CustomList<int> actual;
+
+            //act
+            testList1.Add(1);
+            testList1.Add(2);
+            testList1.Add(3);
+            testList1.Add(4);
+            actual = testList1 - testList2;
+
+            //assert
+            Assert.AreEqual(expected.ToString(), actual.ToString());
         }
     }
 }
