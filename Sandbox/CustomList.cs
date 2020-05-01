@@ -172,6 +172,20 @@ namespace Sandbox
 
         }
 
+        public CustomList<T> Zipper(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> finalList = new CustomList<T>();
+
+
+            for (int i = 0; i < count; i++)
+            {
+                finalList.Add(listOne[i]);
+                finalList.Add(listTwo[i]);
+
+            }
+
+            return finalList;
+        }
     }
 }
   
