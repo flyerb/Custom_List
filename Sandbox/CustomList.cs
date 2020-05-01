@@ -151,16 +151,23 @@ namespace Sandbox
 
             for (int i = 0; i < listOne.count; i++)
             {
-                finalList.Remove(listOne[0]);
+                finalList.Add(listOne[i]);
+                if (listOne[i].Equals(listOne[i +1]))
+                {
+                    finalList.Remove(listOne[i]);
+                }
 
             }
 
             for (int i = 0; i < listTwo.count; i++)
             {
-                finalList.Remove(listTwo[0]);
+                finalList.Add(listTwo[i]);
+                if (listTwo[i].Equals(listTwo[i + 1]))
+                {
+                    finalList.Remove(listTwo[i]);
+                }
 
             }
-
             return finalList;
 
         }

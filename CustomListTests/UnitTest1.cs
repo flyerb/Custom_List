@@ -553,17 +553,17 @@ namespace CustomListTests
         // Overload - Tests
 
         [TestMethod]
-        public void OverloadMinus_TakesTwoLists_ReturnsOneListWithoutIndex0()
+        public void OverloadMinus_TakesTwoLists_ReturnsOneListWithoutDuplicate()
         {
             //arrange
             CustomList<int> testList1 = new CustomList<int>();
             CustomList<int> testList2 = new CustomList<int>();
-            CustomList<int> expected = new CustomList<int>() {2, 4};
+            CustomList<int> expected = new CustomList<int>() {1,3,4};
             CustomList<int> actual;
 
             //act
             testList1.Add(1);
-            testList1.Add(2);
+            testList1.Add(1);
             testList2.Add(3);
             testList2.Add(4);
             actual = testList1 - testList2;
@@ -573,12 +573,12 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void OverloadMinus_TakesOneList_ReturnsOneListWithoutIndex0()
+        public void OverloadMinus_TakesOneList_ReturnsOneListWithAllValues()
         {
             //arrange
             CustomList<int> testList1 = new CustomList<int>();
             CustomList<int> testList2 = new CustomList<int>();
-            CustomList<int> expected = new CustomList<int>() {234};
+            CustomList<int> expected = new CustomList<int>() {1234};
             CustomList<int> actual;
 
             //act
