@@ -1,0 +1,13 @@
+public static CustomList<T> operator- (CustomList<T> listOne, CustomList<T> listTwo)
+
+Parameters
+CustomList<T>, CustomList<T>
+
+The object to remove from the CustomList<T> values that were typed in twice, one after another.
+
+Returns
+CustomList<T>
+Returns a combined list that has removed the duplicates.
+
+Implements
+Remove()

@@ -176,14 +176,17 @@ namespace Sandbox
         {
             CustomList<T> finalList = new CustomList<T>();
 
+                for (int i = 0; i < listOne.count; i++)
+                {
+                    finalList.Add(listOne[i]);
 
-            for (int i = 0; i < count; i++)
-            {
-                finalList.Add(listOne[i]);
-                finalList.Add(listTwo[i]);
+                    if (listTwo[i].Equals(listOne[i]))
+                    {
+                            finalList.Add(listTwo[i]);
+                    }
 
-            }
-
+                }
+            
             return finalList;
         }
     }

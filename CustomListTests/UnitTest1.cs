@@ -607,8 +607,8 @@ namespace CustomListTests
             //act
             testList1.Add(1);
             testList1.Add(2);
-            testList1.Add(3);
-            testList1.Add(4);
+            testList2.Add(3);
+            testList2.Add(4);
             actual = expected.Zipper(testList1, testList2);
 
             //assert
